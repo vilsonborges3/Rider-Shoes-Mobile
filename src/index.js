@@ -1,6 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import './config/reactotronConfig';
+
+import Routes from './routes';
 
 import {
   View,
@@ -9,6 +11,9 @@ import {
 
 export default function App() {
   return (
-    <View />
+    <>
+
+      <Routes />
+    </>
   );
 }
