@@ -26,11 +26,16 @@ export default class Home extends Component {
   };
 
   async componentDidMount(){
-    console.log('test');
+    /**
+     * console.log('test');
+
     const response = await api.get('products');
 
     console.log(response.data);
     this.setState({ products: response.data });
+     *
+     */
+
   }
 
 
@@ -43,24 +48,44 @@ export default class Home extends Component {
           <LogoImage source={{ uri: Logo }} />
           <Icon name="cart" color="#FFF" size={50} />
         </Header>
-        <ProductsList
-          data={products}
-          keyExtractor={product => String(product.id)}
-          renderItem={({ item }) => (
-            <Product>
-              <ProductImage source={{ uri: item.image }} />
-              <ProductTitle>{item.title}</ProductTitle>
-              <ProductPrice>{item.price}</ProductPrice>
-              <ButtonAdd>
-                <CartDetails>
-                  <Icon name='cart-plus' size={40} />
-                  <CartNumber>0</CartNumber>
-                </CartDetails>
-                <TextAdd>Adiconar</TextAdd>
-              </ButtonAdd>
-            </Product>
-          )}
-        />
+        <Product>
+          <ProductImage source={{ uri: 'https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-feminino/52/D22-3838-252/D22-3838-252_zoom2.jpg?ts=1587151665&ims=326x' }} />
+          <ProductTitle>Tenis legal</ProductTitle>
+          <ProductPrice>128,39</ProductPrice>
+          <ButtonAdd>
+            <CartDetails>
+              <CartNumber>0</CartNumber>
+              <Icon name='cart-plus' size={22} color='#fff' />
+            </CartDetails>
+            <TextAdd>Adiconar</TextAdd>
+          </ButtonAdd>
+        </Product>
+
+        <Product>
+          <ProductImage source={{ uri: 'https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-feminino/52/D22-3838-252/D22-3838-252_zoom2.jpg?ts=1587151665&ims=326x' }} />
+          <ProductTitle>Tenis legal</ProductTitle>
+          <ProductPrice>128,39</ProductPrice>
+          <ButtonAdd>
+            <CartDetails>
+              <CartNumber>0</CartNumber>
+              <Icon name='cart-plus' size={22} color='#fff' />
+            </CartDetails>
+            <TextAdd>Adiconar</TextAdd>
+          </ButtonAdd>
+        </Product>
+
+        <Product>
+          <ProductImage source={{ uri: 'https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-feminino/52/D22-3838-252/D22-3838-252_zoom2.jpg?ts=1587151665&ims=326x' }} />
+          <ProductTitle>Tenis legal</ProductTitle>
+          <ProductPrice>128,39</ProductPrice>
+          <ButtonAdd>
+            <CartDetails>
+              <CartNumber>0</CartNumber>
+              <Icon name='cart-plus' size={22} color='#fff' />
+            </CartDetails>
+            <TextAdd>Adiconar</TextAdd>
+          </ButtonAdd>
+        </Product>
       </Container>
     );
   }
