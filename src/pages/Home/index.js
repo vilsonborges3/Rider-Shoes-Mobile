@@ -3,8 +3,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import api from '../../services/api';
 
-import { Logo } from '../../assets/images/Logo.png';
-
 import {
   Container,
   Header,
@@ -25,19 +23,15 @@ export default class Home extends Component {
     products: [],
   };
 
-  async componentDidMount(){
-    /**
-     * console.log('test');
-
-    const response = await api.get('products');
-
-    console.log(response.data);
-    this.setState({ products: response.data });
-     *
-     */
-
+  componentDidMount() {
+    this.getProducts();
   }
 
+  getProducts = async () => {
+    const response = await api.get('/products');
+    console.log(response.data);
+    this.setState({ products: response.data });
+  };
 
   render() {
     const { products } = this.state;
@@ -45,35 +39,9 @@ export default class Home extends Component {
     return (
       <Container>
         <Header>
-          <LogoImage source={{ uri: Logo }} />
+          <LogoImage source={{ uri: '../../assets/images/Logo.png' }} />
           <Icon name="cart" color="#FFF" size={50} />
         </Header>
-        <Product>
-          <ProductImage source={{ uri: 'https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-feminino/52/D22-3838-252/D22-3838-252_zoom2.jpg?ts=1587151665&ims=326x' }} />
-          <ProductTitle>Tenis legal</ProductTitle>
-          <ProductPrice>128,39</ProductPrice>
-          <ButtonAdd>
-            <CartDetails>
-              <CartNumber>0</CartNumber>
-              <Icon name='cart-plus' size={22} color='#fff' />
-            </CartDetails>
-            <TextAdd>Adiconar</TextAdd>
-          </ButtonAdd>
-        </Product>
-
-        <Product>
-          <ProductImage source={{ uri: 'https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-feminino/52/D22-3838-252/D22-3838-252_zoom2.jpg?ts=1587151665&ims=326x' }} />
-          <ProductTitle>Tenis legal</ProductTitle>
-          <ProductPrice>128,39</ProductPrice>
-          <ButtonAdd>
-            <CartDetails>
-              <CartNumber>0</CartNumber>
-              <Icon name='cart-plus' size={22} color='#fff' />
-            </CartDetails>
-            <TextAdd>Adiconar</TextAdd>
-          </ButtonAdd>
-        </Product>
-
         <Product>
           <ProductImage source={{ uri: 'https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-feminino/52/D22-3838-252/D22-3838-252_zoom2.jpg?ts=1587151665&ims=326x' }} />
           <ProductTitle>Tenis legal</ProductTitle>
