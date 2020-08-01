@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StatusBar } from 'react-native';
 
 import './config/reactotronConfig';
 
@@ -12,7 +13,7 @@ import {
 export default function App() {
   return (
     <>
-
+      <StatusBar barSyle="light-content" backgroundColor="#191920"/>
       <Routes />
     </>
   );
