@@ -34,10 +34,10 @@ export default class Home extends Component {
     this.setState({ products: response.data });
   };
 
-  handleCart = () => {
+  handleCart = (product) => {
     const { navigation } = this.props;
 
-    navigation.navigate('Cart', { Cart });
+    navigation.navigate('Cart', { product });
   }
 
   render() {
@@ -55,7 +55,7 @@ export default class Home extends Component {
               <ProductImage source={{ uri: item.image }} />
               <ProductTitle>{item.title}</ProductTitle>
               <ProductPrice>{item.price}</ProductPrice>
-              <ButtonAdd onPress={this.handleCart}>
+              <ButtonAdd onPress={() => this.handleCart(item)}>
                 <CartDetails>
                   <CartNumber>0</CartNumber>
                   <Icon name='cart-plus' size={22} color='#fff' />
