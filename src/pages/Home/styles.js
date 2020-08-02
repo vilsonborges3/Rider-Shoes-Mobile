@@ -8,31 +8,23 @@ export const Container = styled.View`
 
 `;
 
-export const Header = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const LogoImage = styled.Image`
-  width: 100px;
-  height: 100px;
-  background: #DDD;
-`;
-
-export const ProductsList = styled.FlatList`
-
+export const ProductsList = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+  inverted: true,
+})`
 `;
 export const Product = styled.View`
   background-color: #FFF;
-  margin-top: 15px;
+  margin: 15px;
   border-radius: 10px;
   width: 250px;
+  height: 400px;
   padding: 10px;
+  display: flex;
 `;
 export const ProductImage = styled.Image`
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
 `;
 export const ProductTitle = styled.Text`
   font-size: 20px;
@@ -46,6 +38,7 @@ export const ButtonAdd = styled(RectButton)`
   align-items: center;
   background-color: #7159c1;
   border-radius: 5px;
+  margin-top: auto;
 `;
 export const CartDetails = styled.View`
   display: flex;

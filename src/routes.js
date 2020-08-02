@@ -26,6 +26,11 @@ const Routes = () => {
           name='Home'
           component={Home}
         />
+
+        <Stack.Screen
+          name='Cart'
+          component={Cart}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
