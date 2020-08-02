@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconDelete from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconAddRemove from 'react-native-vector-icons/Ionicons';
+import { RectButton, Text } from 'react-native-gesture-handler';
 
 import Header from '../../Components/Header'
 import {
@@ -14,6 +16,11 @@ import {
   AmountView,
   ChangeView,
   Amount,
+  TextTotal,
+  ValueTotal,
+  ViewTotal,
+  ButtonFinish,
+  TextAdd,
 } from './styles';
 
 export default class Cart extends Component {
@@ -36,6 +43,7 @@ export default class Cart extends Component {
   }
   render() {
     const { products } = this.state;
+
     return (
       <Container>
         <Header />
@@ -50,17 +58,27 @@ export default class Cart extends Component {
                   <Title>{item.title}</Title>
                   <Price>{item.price}</Price>
                 </TitlePrice>
-                <Icon name='delete-forever' size={30} color='#7159c1' />
+                <IconDelete name='delete-forever' size={30} color='#7159c1' />
               </ImageTitlePrice>
-
               <AmountView>
                 <ChangeView>
-                  <Icon name='add-circle-outline' size={30} color='#7159c1' />
+                  <RectButton>
+                    <IconAddRemove name='add-circle-outline' size={25} color='#7159c1' />
+                  </RectButton>
                   <Amount type="number" readOnly value="1" />
-                  <Icon name='remove-circle-outline' size={30} color='#7159c1' />
+                  <RectButton>
+                    <IconAddRemove name='remove-circle-outline' size={25} color='#7159c1' />
+                  </RectButton>
                 </ChangeView>
                 <Price>{item.price}</Price>
               </AmountView>
+              <ViewTotal>
+                <TextTotal>Total</TextTotal>
+                <ValueTotal>328,38</ValueTotal>
+                <ButtonFinish>
+                  <TextAdd>Finalizar Pedido</TextAdd>
+                </ButtonFinish>
+              </ViewTotal>
             </ListContainer>
           )}
         />

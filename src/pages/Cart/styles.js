@@ -9,7 +9,13 @@ export const Container = styled.View`
 export const ProductData = styled.FlatList`
 
 `;
-export const ListContainer = styled.View``;
+export const ListContainer = styled.View`
+  flex: 1;
+  background-color: #FFF;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+`;
 
 export const ImageTitlePrice = styled.View`
   background-color: #FFF;
@@ -35,11 +41,55 @@ export const Price = styled.Text`
 `;
 
 export const AmountView = styled.View`
-
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #EEE;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 5px;
 `;
 export const ChangeView = styled.View`
-
+  flex-direction: row;
+  align-items: center;
 `;
 export const Amount = styled.TextInput`
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 60px;
+  border: #CCC;
+`;
+export const ViewTotal = styled.View`
+  align-items: center;
+`;
 
+export const TextTotal = styled.Text`
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #BBB;
+`;
+export const ValueTotal = styled.Text`
+  font-size: 35px;
+  font-weight: bold;
+`;
+
+export const ButtonFinish = styled.TouchableOpacity`
+  background-color: #7159c1;
+  width: 300px;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 30px;
+`;
+
+export const TextAdd = styled.Text`
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFF;
 `;
