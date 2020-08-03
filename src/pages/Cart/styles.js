@@ -6,14 +6,16 @@ export const Container = styled.View`
   background: #191920;
 `;
 
-export const ProductData = styled.FlatList`
-
-`;
 export const ListContainer = styled.View`
   flex: 1;
   background-color: #FFF;
   border-radius: 15px;
-  margin: 10px;
+  padding: 7px;
+`;
+
+export const List = styled.View`
+  flex: 1;
+  background-color: #FFF;
   padding: 10px;
 `;
 

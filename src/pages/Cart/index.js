@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import IconDelete from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAddRemove from 'react-native-vector-icons/Ionicons';
-import { RectButton, Text } from 'react-native-gesture-handler';
+import { RectButton, FlatList } from 'react-native-gesture-handler';
 
 import Header from '../../Components/Header'
+
 import {
   Container,
-  ProductData,
   ListContainer,
+  List,
   ImageTitlePrice,
   ProductImage,
   TitlePrice,
@@ -23,35 +25,17 @@ import {
   TextAdd,
 } from './styles';
 
-export default class Cart extends Component {
-  state = {
-    products: [],
-  }
-
-  componentDidMount (){
-    const { products } = this.state;
-
-    const { route } = this.props;
-
-    const { product } = route.params;
-
-    this.setState({
-      products: [
-        ...products, product
-      ],
-    });
-  }
-  render() {
-    const { products } = this.state;
-
-    return (
-      <Container>
-        <Header />
-        <ProductData
-          data={products}
+function Cart ({ cart }) {
+  return (
+    <Container>
+      <Header />
+      <ListContainer>
+        <FlatList
+          data={cart}
           keyExtractor={product => String(product.id)}
           renderItem={ ({ item }) => (
-            <ListContainer>
+            <List>
+
               <ImageTitlePrice>
                 <ProductImage source={{ uri: item.image }} />
                 <TitlePrice>
@@ -72,17 +56,23 @@ export default class Cart extends Component {
                 </ChangeView>
                 <Price>{item.price}</Price>
               </AmountView>
-              <ViewTotal>
-                <TextTotal>Total</TextTotal>
-                <ValueTotal>328,38</ValueTotal>
-                <ButtonFinish>
-                  <TextAdd>Finalizar Pedido</TextAdd>
-                </ButtonFinish>
-              </ViewTotal>
-            </ListContainer>
+            </List>
           )}
         />
-      </Container>
-    );
+        <ViewTotal>
+          <TextTotal>Total</TextTotal>
+          <ValueTotal>328,38</ValueTotal>
+        </ViewTotal>
+        <ButtonFinish>
+          <TextAdd>Finalizar Pedido</TextAdd>
+        </ButtonFinish>
+      </ListContainer>
+    </Container>
+  );
   }
-}
+
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
+
+export default connect(mapStateToProps)(Cart);

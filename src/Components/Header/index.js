@@ -1,16 +1,30 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { connect } from 'react-redux';
+import { TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Logo from '../../assets/images/Logo.svg';
 
-import { HeaderView, LogoImage } from './styles';
+import { HeaderView, LogoImage, ItensCart, IconeView } from './styles';
 
-export default function Header() {
+function Header({ cartSize, navigation }) {
+  handlePress = () => {
+    navigation.navigate('Cart');
+  }
+
   return (
     <HeaderView>
       <LogoImage source={require( '../../assets/images/Logo.svg' )} />
-      <Icon name="basket-sharp" color="#FFF" size={50} />
+      <IconeView>
+        <TouchableOpacity onPress={handlePress}>
+          <ItensCart>{cartSize}</ItensCart>
+          <Icon name="basket-sharp" position='absolute' color="#FFF" size={50} />
+        </TouchableOpacity>
+      </IconeView>
     </HeaderView>
   );
 }
+
+export default connect(state => ({
+  cartSize: state.cart.length,
+}))(Header);

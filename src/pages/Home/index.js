@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { connect } from 'react-redux';
 
-import Cart from '../Cart';
 import Header from '../../Components/Header';
 
 import api from '../../services/api';
@@ -19,7 +19,7 @@ import {
   TextAdd
 } from './styles';
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     products: [],
   };
@@ -35,9 +35,12 @@ export default class Home extends Component {
   };
 
   handleCart = (product) => {
-    const { navigation } = this.props;
+    const { dispatch } = this.props;
 
-    navigation.navigate('Cart', { product });
+    dispatch({
+      type: 'ADD_TO_CART',
+      product,
+    })
   }
 
   render() {
@@ -45,7 +48,7 @@ export default class Home extends Component {
 
     return (
       <Container>
-        <Header />
+        <Header navigation={this.props.navigation} />
         <ProductsList
           data={products}
           keyExtractor={product => String(product.id)}
@@ -71,3 +74,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect()(Home);
