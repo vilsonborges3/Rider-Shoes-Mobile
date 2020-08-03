@@ -48,7 +48,7 @@ export const CartDetails = styled.View`
   background: rgba(0, 0, 0, 0.1);
 `;
 export const CartNumber = styled.Text`
-  font-size: 25px;
+  font-size: 20px;
   padding: 5px;
   color: #fff;
 `;

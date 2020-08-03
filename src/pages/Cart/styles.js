@@ -4,19 +4,22 @@ export const Container = styled.View`
   flex: 1;
   padding: 20px;
   background: #191920;
+
 `;
 
 export const ListContainer = styled.View`
-  flex: 1;
+
   background-color: #FFF;
   border-radius: 15px;
   padding: 7px;
+  flex: 1;
 `;
 
 export const List = styled.View`
-  flex: 1;
   background-color: #FFF;
   padding: 10px;
+
+  align-items: center;
 `;
 
 export const ImageTitlePrice = styled.View`
@@ -50,6 +53,7 @@ export const AmountView = styled.View`
   margin: 10px;
   border-radius: 8px;
   padding: 5px;
+  width: 300px;
 `;
 export const ChangeView = styled.View`
   flex-direction: row;
@@ -82,10 +86,11 @@ export const ValueTotal = styled.Text`
 
 export const ButtonFinish = styled.TouchableOpacity`
   background-color: #7159c1;
-  width: 300px;
+  width: 340px;
   padding: 10px;
   border-radius: 6px;
   margin-top: 30px;
+
 `;
 
 export const TextAdd = styled.Text`
