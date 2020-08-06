@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -7,7 +7,9 @@ import Logo from '../../assets/images/Logo.svg';
 
 import { HeaderView, LogoImage, ItensCart, IconeView } from './styles';
 
-function Header({ cartSize, navigation }) {
+export default function Header({ navigation }) {
+  const cartSize = useSelector(state => state.cart.length);
+
   handlePress = () => {
     navigation.navigate('Cart');
   }
@@ -24,7 +26,3 @@ function Header({ cartSize, navigation }) {
     </HeaderView>
   );
 }
-
-export default connect(state => ({
-  cartSize: state.cart.length,
-}))(Header);
